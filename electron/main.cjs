@@ -59,17 +59,18 @@ function startServer() {
 }
 
 function createWindow() {
-  mainWindow = new BrowserWindow({
-    width: 1400,
-    height: 900,
-    minWidth: 1000,
-    minHeight: 640,
-    backgroundColor: "#09090b",
-    autoHideMenuBar: true,
-    webPreferences: {
-      preload: path.join(__dirname, "preload.cjs"),
-      contextIsolation: true,
-    },
+mainWindow = new BrowserWindow({
+  title: "proximity+",
+  width: 1400,
+  height: 900,
+  minWidth: 1000,
+  minHeight: 640,
+  backgroundColor: "#09090b",
+  autoHideMenuBar: true,
+  webPreferences: {
+    preload: path.join(__dirname, "preload.cjs"),
+    contextIsolation: true,
+  },
   });
 
   mainWindow.loadURL(SERVER_URL);
