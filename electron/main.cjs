@@ -40,15 +40,18 @@ function waitForServer(url, timeoutMs = 20000) {
 
 function startServer() {
   const serverEntry = resolveServerEntry();
+  const staticDir = app.isPackaged
+    ? path.join(process.resourcesPath, "dist")
+    : path.join(__dirname, "..", "dist");
 
-  // Run the bundled server with Electron's own Node runtime (ELECTRON_RUN_AS_NODE)
-  // so end users don't need Node.js installed separately.
   serverProcess = spawn(process.execPath, [serverEntry], {
+    cwd: app.isPackaged ? path.dirname(app.getPath("exe")) : path.join(__dirname, ".."),
     env: {
       ...process.env,
       NODE_ENV: "production",
       PORT: String(PORT),
       ELECTRON_RUN_AS_NODE: "1",
+      STATIC_DIR: staticDir,
     },
     stdio: "inherit",
   });
