@@ -1,0 +1,6 @@
+{
+  "name": ".proximity+",
+  "description": "An interactive web music player with drag-and-drop MP3 uploads, real-time lyric lookup, customizable EQ profiles, multiple audio visualizers, and playlist management, all stored locally using IndexedDB.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
