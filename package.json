@@ -46,28 +46,22 @@
     "files": [
       "electron/**/*"
     ],
-    "extraResources": [
-      {
-        "from": "dist",
-        "to": "dist",
-        "filter": [
-          "**/*",
-          "!win-unpacked",
-          "!win-unpacked/**",
-          "!*.exe"
-        ]
-      },
-      {
-        "from": "node_modules",
-        "to": "dist/node_modules",
-        "filter": [
-          "express/**",
-          "dotenv/**",
-          "vite/**",
-          "@google/genai/**"
-        ]
-      }
-    ],
+"extraResources": [
+  {
+    "from": "dist",
+    "to": "dist",
+    "filter": [
+      "**/*",
+      "!win-unpacked",
+      "!win-unpacked/**",
+      "!*.exe"
+    ]
+  },
+  {
+    "from": "node_modules",
+    "to": "dist/node_modules"
+  }
+],
     "win": {
       "target": [
         "nsis"
