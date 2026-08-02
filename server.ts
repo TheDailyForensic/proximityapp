@@ -840,7 +840,7 @@ ${JSON.stringify(syncedLyrics.map((l: any) => ({ time: l.time, text: l.text })))
     app.use(vite.middlewares);
     console.log("Vite development server middleware integrated.");
   } else {
-    const distPath = path.join(process.cwd(), "dist");
+    const distPath = process.env.STATIC_DIR || path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
     app.get("*", (req, res) => {
       res.sendFile(path.join(distPath, "index.html"));
